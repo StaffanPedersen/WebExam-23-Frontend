@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const MainNav = () => {
   return (
-    <header className="container-fluid bg-success ">
-      <nav>
-        <ul>
-          <li>
+    <header className=" ">
+      <nav className="">
+        <ul className="d-flex justify-content-center justify-content-around list-unstyled m-2 p-3 ">
+          <li className="">
             <Link to="/">Hjem</Link>
           </li>
           <li>

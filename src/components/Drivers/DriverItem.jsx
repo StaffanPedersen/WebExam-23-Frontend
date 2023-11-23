@@ -2,7 +2,7 @@
 
 const DriverItem = ({ name, nationality, age, image }) => {
   return (
-    <article className="col-12 col-sm-6 col-md-4 col-lg-3 bg-success">
+    <article className="col-12 col-sm-6 col-md-4 col-lg-3 bg-success m-4">
       <div className="border text-center h-100">
         <h3>{name}</h3>
         <div>

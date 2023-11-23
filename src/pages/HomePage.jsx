@@ -1,6 +1,4 @@
 import DriverItem from "../components/Drivers/DriverItem";
-// import DriverList from "../components/Drivers/DriverList";
-// import DriverListMin from "../components/Drivers/DriverListMin";
 
 const HomePage = () => {
   return (
