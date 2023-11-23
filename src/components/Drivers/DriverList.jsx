@@ -8,7 +8,13 @@ const DriverList = () => {
 
   const getDriversJSX = () => {
     const driverJSX = driver.map((_driver, i) => (
-      <DriverItem key={i} title={_driver.name} image={_driver.image} />
+      <DriverItem
+        key={i}
+        name={_driver.name}
+        age={_driver.age}
+        nationality={_driver.nationality}
+        image={_driver.image}
+      />
     ));
     return driverJSX;
   };
@@ -17,7 +23,10 @@ const DriverList = () => {
     <section className="mb-3">
       <h3>Våre sjåfører</h3>
       <p>Antall sjåfører: {driver.length}</p>
-      <section className="row g-3">{getDriversJSX()}</section>
+      <section className="row g-3">
+        
+        <div>{getDriversJSX()}</div>
+      </section>
     </section>
   );
 };

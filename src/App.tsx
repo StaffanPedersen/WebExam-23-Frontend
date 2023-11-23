@@ -7,6 +7,7 @@ import {
 } from "./pages";
 import MainNav from "./components/shared/MainNav";
 import { DriverProvider } from "./contexts/DriverContext";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const MainNav = () => {
   return (
-    <header className="container-fluid">
+    <header className="container-fluid bg-success ">
       <nav>
         <ul>
           <li>
