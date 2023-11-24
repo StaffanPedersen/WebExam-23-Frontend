@@ -39,7 +39,7 @@ const DriverService = (() => {
   };
 
   const postDriver = async (newDriver, image) => {
-    let formData; // Declare formData here to make it accessible in the finally block
+    let formData;
 
     try {
       const result = await axios.post(driverController, newDriver);
@@ -53,7 +53,7 @@ const DriverService = (() => {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
-      return result.data; // Assuming the created driver data is in the response
+      return result.data;
     } catch (err) {
       console.error("Error posting driver:", err);
       return null;

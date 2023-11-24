@@ -51,13 +51,11 @@ const AddDriver = () => {
     if (createdDriver) {
       setSubmitStatus("Driver added successfully!");
 
-      // Clear the form
       setName("");
       setAge("");
       setNationality("");
       setImage(null);
 
-      // Update the driver context after adding a new driver
       setDriver((prevDriver) => [...prevDriver, createdDriver]);
     } else {
       setSubmitStatus("Error adding driver. Please try again later.");
