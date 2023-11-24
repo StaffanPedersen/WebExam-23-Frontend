@@ -1,30 +1,24 @@
 import { useState, useContext } from "react";
+import DriverService from "../../services/DriverService";
 import { DriverContext } from "../../contexts/DriverContext";
 
 const DeleteDriver = () => {
-  // const handleChange = () => {
-  //   // handlechange is not defined
-  // };
+  const [id, setId] = useState("");
+  const [deleteStatus, setDeleteStatus] = useState("");
+  const { getDriverFromService } = useContext(DriverContext);
 
   const handleChange = (e) => {
-    switch (
-      e.currentTarget.name // sjekker hvilket element som er gjort noe med basert på dets name-attributt; satt i JSX
-    ) {
-      case "title":
-        setTitle(e.currentTarget.value);
-        break;
-      case "image":
-        setImage(e.currentTarget.files[0]); // input type file har et array i seg; vårt bilde er på plass 0
-        break;
-    }
+    setId(e.currentTarget.value);
   };
 
   const handleClick = async () => {
-    const doneDelete = await MediaService.deleteDriver(id);
+    const doneDelete = await DriverService.deleteDriver(id);
     if (doneDelete === true) {
-      setDeleteStatus("Slettet!");
+      setDeleteStatus("Driver deleted!");
+
+      await getDriverFromService();
     } else {
-      setDeleteStatus("Noe gikk galt!");
+      setDeleteStatus("Something went wrong!");
     }
     setTimeout(() => {
       setDeleteStatus("");
@@ -33,12 +27,13 @@ const DeleteDriver = () => {
 
   return (
     <section className="mb-3">
-      <h3>Slett en sjåfør</h3>
+      <h3>Delete a driver</h3>
       <div>
-        <label>Id til sjåfør å slette </label>
+        <label>Driver ID to delete</label>
         <input onChange={handleChange} name="id" type="text" />
       </div>
-      <input onClick={handleClick} type="button" value="Slett sjåfør" />
+      <input onClick={handleClick} type="button" value="Delete driver" />
+      {deleteStatus && <p>{deleteStatus}</p>}
     </section>
   );
 };

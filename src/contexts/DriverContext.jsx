@@ -1,35 +1,46 @@
+// DriverContext.jsx
 import { createContext, useState, useEffect } from "react";
-import MediaService from "../services/MediaService";
+import DriverService from "../services/DriverService";
 
 export const DriverContext = createContext(null);
 
 export const DriverProvider = ({ children }) => {
-  const [driver, setdriver] = useState([]);
+  const [driver, setDriver] = useState([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      getDriverFromService();
-    }, 2000);
-    // setTimeout bare inkludert for å skape et lite tidsavbrudd før info fra databasen vises; kun for testens skyld
+    getDriverFromService();
   }, []);
 
   const getDriverFromService = async () => {
-    const driverFromService = await MediaService.getAll();
-    setdriver(driverFromService);
+    const driverFromService = await DriverService.getAll();
+    setDriver(driverFromService);
   };
 
   const getById = async (id) => {
-    const driverToUpdate = await MediaService.getById(id);
-    return driverToUpdate;
+    try {
+      const result = await DriverService.getById(id);
+      return result;
+    } catch (err) {
+      console.error("Error fetching driver by ID:", err);
+      return null;
+    }
   };
 
   const editDriver = async (driverToUpdate) => {
-    await MediaService.putDriver(driverToUpdate);
-    getDriverFromService(); // Denne oppdaterer series ved å hente fra databasen i Web APIet på nytt. Kanskje burde man heller bare oppdatere det ene objektet som er endret i SeriesContext.
+    await DriverService.putDriver(driverToUpdate);
+    getDriverFromService();
   };
 
   return (
-    <DriverContext.Provider value={{ driver, getById, editDriver }}>
+    <DriverContext.Provider
+      value={{
+        driver,
+        setDriver,
+        getDriverFromService,
+        getById,
+        editDriver,
+      }}
+    >
       {children}
     </DriverContext.Provider>
   );

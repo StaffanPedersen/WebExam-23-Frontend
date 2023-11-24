@@ -4,7 +4,7 @@ import DriverListMin from "../components/Drivers/DriverListMin";
 const DeleteDriverPage = () => {
   return (
     <>
-      <DeleteDriver />
+  
       <DriverListMin />
     </>
   );

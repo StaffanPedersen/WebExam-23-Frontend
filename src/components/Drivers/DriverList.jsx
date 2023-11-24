@@ -3,13 +3,13 @@ import DriverItem from "./DriverItem";
 import { DriverContext } from "../../contexts/DriverContext";
 
 const DriverList = () => {
-  // Får tak i series fra SeriesContext. series er en state som SeriesContext har.
   const { driver } = useContext(DriverContext);
 
   const getDriversJSX = () => {
     const driverJSX = driver.map((_driver, i) => (
       <DriverItem
         key={i}
+        id={_driver.id}
         name={_driver.name}
         age={_driver.age}
         nationality={_driver.nationality}
@@ -21,11 +21,10 @@ const DriverList = () => {
 
   return (
     <section className="mb-3">
-      <h3>Våre sjåfører</h3>
-      <p>Antall sjåfører: {driver.length}</p>
-      <section className="row g-3">
-        
-        <div>{getDriversJSX()}</div>
+      <h3>Sjåfører</h3>
+      <p>Antall: {driver.length}</p>
+      <section className=" container row g-3">
+        <div className="row">{getDriversJSX()}</div>
       </section>
     </section>
   );

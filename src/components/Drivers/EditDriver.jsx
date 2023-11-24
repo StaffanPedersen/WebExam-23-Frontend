@@ -1,56 +1,89 @@
-import { useContext, useState } from "react";
+// EditDriver.jsx
+import React, { useState, useContext } from "react";
 import { DriverContext } from "../../contexts/DriverContext";
 
 const EditDriver = () => {
   const { getById, editDriver } = useContext(DriverContext);
 
-  const [id, setId] = useState("1");
-  const [driverToUpdate, setDriverToUpdate] = useState({ title: "Testtittel" });
+  const [id, setId] = useState("");
+  const [driverToUpdate, setDriverToUpdate] = useState({
+    id: "",
+    name: "",
+    age: 0,
+    nationality: "",
+    image: "",
+  });
 
-  const handleChange = (e) => {
-    switch (e.currentTarget.name) {
-      case "id":
-        setId(e.currentTarget.value);
-        break;
-      case "title":
-        setDriverToUpdate({ ...driverToUpdate, title: e.currentTarget.value });
-        console.log("Går inn i title");
-        break;
-    }
+  const handleIdChange = (e) => {
+    setId(e.currentTarget.value);
   };
 
   const getByIdFromContext = async () => {
-    const driverFromContext = await getById(id); // henter serien fra Context som igjen henter den fra Service som igjen henter fra Web API
-    setDriverToUpdate(driverFromContext);
-    console.log(driverFromContext);
+    const driverFromContext = await getById(id);
+
+    setDriverToUpdate({
+      id: driverFromContext ? driverFromContext.id : "",
+      name: driverFromContext ? driverFromContext.name : "",
+      age: driverFromContext ? driverFromContext.age : 0,
+      nationality: driverFromContext ? driverFromContext.nationality : "",
+      image: driverFromContext ? driverFromContext.image : "",
+    });
   };
 
-  const saveChanges = () => {
-    editDriver(driverToUpdate);
+  const handleFormChange = (e) => {
+    const { name, value } = e.currentTarget;
+    setDriverToUpdate({ ...driverToUpdate, [name]: value });
+  };
+
+  const saveChanges = async () => {
+    await editDriver(driverToUpdate);
   };
 
   return (
     <section className="mb-3">
-      <h3>Rediger sjåfør</h3>
+      <h3>Edit Driver</h3>
       <div>
-        <label>Angi id</label>
-        <input onChange={handleChange} name="id" value={id} type="text" />
-        <input
-          onClick={getByIdFromContext}
-          type="button"
-          value="Hent etter id"
-        />
+        <label>Enter ID</label>
+        <input onChange={handleIdChange} name="id" value={id} type="text" />
+        <button onClick={getByIdFromContext}>Fetch by ID</button>
       </div>
       <div>
-        <label>Tittel</label>
+        <label>Name</label>
         <input
-          onChange={handleChange}
-          name="title"
-          value={driverToUpdate.title}
+          onChange={handleFormChange}
+          name="name"
+          value={driverToUpdate.name}
           type="text"
         />
       </div>
-      <input onClick={saveChanges} type="button" value="Lagre endring" />
+      <div>
+        <label>Age</label>
+        <input
+          onChange={handleFormChange}
+          name="age"
+          value={driverToUpdate.age}
+          type="number"
+        />
+      </div>
+      <div>
+        <label>Nationality</label>
+        <input
+          onChange={handleFormChange}
+          name="nationality"
+          value={driverToUpdate.nationality}
+          type="text"
+        />
+      </div>
+      <div>
+        <label>Image</label>
+        <input
+          onChange={handleFormChange}
+          name="image"
+          value={driverToUpdate.image}
+          type="text"
+        />
+      </div>
+      <button onClick={saveChanges}>Save Changes</button>
     </section>
   );
 };

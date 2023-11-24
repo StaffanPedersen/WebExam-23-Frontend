@@ -1,9 +1,8 @@
-// Import your MediaService module here
-
-const DriverItem = ({ name, nationality, age, image }) => {
+const DriverItem = ({ id, name, nationality, age, image }) => {
   return (
     <article className="col-12 col-sm-6 col-md-4 col-lg-3 bg-success m-4">
-      <div className="border text-center h-100">
+      <div className=" border text-center h-100">
+        <h4 className="bg-danger">ID:{id}</h4>
         <h3>{name}</h3>
         <div>
           <p>Nationalitet: {nationality}</p>
