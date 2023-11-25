@@ -14,7 +14,7 @@ const DeleteDriver = () => {
   const handleClick = async () => {
     const doneDelete = await DriverService.deleteDriver(id);
     if (doneDelete === true) {
-      setDeleteStatus("Driver deleted!");
+      setDeleteStatus("Sjåfør slettet!");
 
       await getDriverFromService();
     } else {
@@ -26,7 +26,7 @@ const DeleteDriver = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container border">
       <h3>Slett en sjåfør</h3>
       <div className="row">
         <div className="col-md-6">

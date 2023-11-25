@@ -39,16 +39,16 @@ const EditDriver = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container border">
       <h3>Endre sjåfør</h3>
-      <div className="row">
+      <div className="col">
         <div className="col-md-6">
           <label>Enter ID</label>
           <input onChange={handleIdChange} name="id" value={id} type="text" />
           <button onClick={getByIdFromContext}>Hent etter ID</button>
         </div>
       </div>
-      <div className="row">
+      <div className="col">
         <div className="col-md-6">
           <label>Navn</label>
           <input
@@ -68,7 +68,7 @@ const EditDriver = () => {
           />
         </div>
       </div>
-      <div className="row">
+      <div className="col">
         <div className="col-md-6">
           <label>Nasjonalitet</label>
           <input
@@ -88,7 +88,7 @@ const EditDriver = () => {
           />
         </div>
       </div>
-      <div className="row">
+      <div className="col">
         <div className="col-md-12">
           <button onClick={saveChanges}>Lagre endringer</button>
         </div>

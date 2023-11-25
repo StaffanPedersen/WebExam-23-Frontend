@@ -60,7 +60,7 @@ const AddDriver = () => {
   };
 
   return (
-    <div className="container w-2 p-3 ">
+    <div className="container border w-2 p-3 ">
       <h3>Legg til ny Sjåfør</h3>
       <div className="col">
         <div className="col-md-6">
