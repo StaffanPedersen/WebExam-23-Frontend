@@ -26,15 +26,25 @@ const DeleteDriver = () => {
   };
 
   return (
-    <section className="mb-3 ">
+    <div className="container">
       <h3>Slett en sjåfør</h3>
-      <div>
-        <label>ID til en sjåfør</label>
-        <input onChange={handleChange} name="id" type="text" />
+      <div className="row">
+        <div className="col-md-6">
+          <label>ID til en sjåfør</label>
+          <form>
+            <input onChange={handleChange} name="id" type="text" />
+          </form>
+        </div>
       </div>
-      <input onClick={handleClick} type="button" value="Slett sjåfør" />
-      {deleteStatus && <p>{deleteStatus}</p>}
-    </section>
+      <div className="row">
+        <div className="col-md-12">
+          <form>
+            <input onClick={handleClick} type="button" value="Slett sjåfør" />
+          </form>
+          {deleteStatus && <p>{deleteStatus}</p>}
+        </div>
+      </div>
+    </div>
   );
 };
 

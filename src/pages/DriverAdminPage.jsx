@@ -6,16 +6,28 @@ import FormContainer from "../components/Drivers/FormContainer";
 
 const DriverAdminPage = () => {
   return (
-    <section>
-      <div className="col-12 col-sm-6 col-md-4 col-lg-3">
-        <FormContainer>
-          <AddDriver />
-          <EditDriver />
-          <DeleteDriver />
-        </FormContainer>
+    <section className="container-fluid">
+      <div className="row">
+        <div className="col-lg-4">
+          <FormContainer>
+            <AddDriver />
+          </FormContainer>
+        </div>
+        <div className="col-lg-4">
+          <FormContainer>
+            <EditDriver />
+          </FormContainer>
+        </div>
+        <div className="col-lg-4">
+          <FormContainer>
+            <DeleteDriver />
+          </FormContainer>
+        </div>
       </div>
-      <div className="">
-        <DriverList page="driveradminpage" />
+      <div className="row">
+        <div className="col">
+          <DriverList page="driveradminpage" />
+        </div>
       </div>
     </section>
   );

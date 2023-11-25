@@ -39,51 +39,61 @@ const EditDriver = () => {
   };
 
   return (
-    <section className="mb-3 ">
+    <div className="container">
       <h3>Endre sjåfør</h3>
-      <div>
-        <label>Enter ID</label>
-        <input onChange={handleIdChange} name="id" value={id} type="text" />
-        <button onClick={getByIdFromContext}>Hent etter ID</button>
+      <div className="row">
+        <div className="col-md-6">
+          <label>Enter ID</label>
+          <input onChange={handleIdChange} name="id" value={id} type="text" />
+          <button onClick={getByIdFromContext}>Hent etter ID</button>
+        </div>
       </div>
-      <div>
-        <label>Navn</label>
-        <input
-          onChange={handleFormChange}
-          name="name"
-          value={driverToUpdate.name}
-          type="text"
-        />
+      <div className="row">
+        <div className="col-md-6">
+          <label>Navn</label>
+          <input
+            onChange={handleFormChange}
+            name="name"
+            value={driverToUpdate.name}
+            type="text"
+          />
+        </div>
+        <div className="col-md-6">
+          <label>Alder</label>
+          <input
+            onChange={handleFormChange}
+            name="age"
+            value={driverToUpdate.age}
+            type="number"
+          />
+        </div>
       </div>
-      <div>
-        <label>Alder</label>
-        <input
-          onChange={handleFormChange}
-          name="age"
-          value={driverToUpdate.age}
-          type="number"
-        />
+      <div className="row">
+        <div className="col-md-6">
+          <label>Nasjonalitet</label>
+          <input
+            onChange={handleFormChange}
+            name="nationality"
+            value={driverToUpdate.nationality}
+            type="text"
+          />
+        </div>
+        <div className="col-md-6">
+          <label>Bilde</label>
+          <input
+            onChange={handleFormChange}
+            name="image"
+            value={driverToUpdate.image}
+            type="text"
+          />
+        </div>
       </div>
-      <div>
-        <label>Nationalitet</label>
-        <input
-          onChange={handleFormChange}
-          name="nationality"
-          value={driverToUpdate.nationality}
-          type="text"
-        />
+      <div className="row">
+        <div className="col-md-12">
+          <button onClick={saveChanges}>Lagre endringer</button>
+        </div>
       </div>
-      <div>
-        <label>Bilde</label>
-        <input
-          onChange={handleFormChange}
-          name="image"
-          value={driverToUpdate.image}
-          type="text"
-        />
-      </div>
-      <button onClick={saveChanges}>Lagre endringer</button>
-    </section>
+    </div>
   );
 };
 

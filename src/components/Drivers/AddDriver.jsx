@@ -60,37 +60,45 @@ const AddDriver = () => {
   };
 
   return (
-    <section className="mb-3   ">
+    <div className="container w-2 p-3 ">
       <h3>Legg til ny Sjåfør</h3>
-      <div>
-        <label>Navn:</label>
-        <input name="name" onChange={handleChange} type="text" value={name} />
+      <div className="col">
+        <div className="col-md-6">
+          <label>Navn:</label>
+          <input name="name" onChange={handleChange} type="text" value={name} />
+        </div>
+        <div className="col-md-6">
+          <label>Alder:</label>
+          <input name="age" onChange={handleChange} type="number" value={age} />
+        </div>
       </div>
-      <div>
-        <label>Alder:</label>
-        <input name="age" onChange={handleChange} type="number" value={age} />
+      <div className="col">
+        <div className="col-md-6">
+          <label>Nasjonalitet:</label>
+          <input
+            name="nationality"
+            onChange={handleChange}
+            type="text"
+            value={nationality}
+          />
+        </div>
+        <div className="col-md-6">
+          <label>Bilde</label>
+          <input name="image" onChange={handleChange} type="file" />
+        </div>
       </div>
-      <div>
-        <label>Nasjonalitet:</label>
-        <input
-          name="nationality"
-          onChange={handleChange}
-          type="text"
-          value={nationality}
-        />
+      <div className="row">
+        <div className="col-md-12">
+          <input
+            onClick={saveImage}
+            type="button"
+            value="Lagre"
+            disabled={loading}
+          />
+          {submitStatus && <p>{submitStatus}</p>}
+        </div>
       </div>
-      <div>
-        <label>Bilde</label>
-        <input name="image" onChange={handleChange} type="file" />
-      </div>
-      <input
-        onClick={saveImage}
-        type="button"
-        value="Lagre"
-        disabled={loading}
-      />
-      {submitStatus && <p>{submitStatus}</p>}
-    </section>
+    </div>
   );
 };
 
