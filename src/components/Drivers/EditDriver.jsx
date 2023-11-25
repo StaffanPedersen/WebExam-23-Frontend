@@ -39,15 +39,15 @@ const EditDriver = () => {
   };
 
   return (
-    <section className="mb-3">
-      <h3>Edit Driver</h3>
+    <section className="mb-3 ">
+      <h3>Endre sjåfør</h3>
       <div>
         <label>Enter ID</label>
         <input onChange={handleIdChange} name="id" value={id} type="text" />
-        <button onClick={getByIdFromContext}>Fetch by ID</button>
+        <button onClick={getByIdFromContext}>Hent etter ID</button>
       </div>
       <div>
-        <label>Name</label>
+        <label>Navn</label>
         <input
           onChange={handleFormChange}
           name="name"
@@ -56,7 +56,7 @@ const EditDriver = () => {
         />
       </div>
       <div>
-        <label>Age</label>
+        <label>Alder</label>
         <input
           onChange={handleFormChange}
           name="age"
@@ -65,7 +65,7 @@ const EditDriver = () => {
         />
       </div>
       <div>
-        <label>Nationality</label>
+        <label>Nationalitet</label>
         <input
           onChange={handleFormChange}
           name="nationality"
@@ -74,7 +74,7 @@ const EditDriver = () => {
         />
       </div>
       <div>
-        <label>Image</label>
+        <label>Bilde</label>
         <input
           onChange={handleFormChange}
           name="image"
@@ -82,7 +82,7 @@ const EditDriver = () => {
           type="text"
         />
       </div>
-      <button onClick={saveChanges}>Save Changes</button>
+      <button onClick={saveChanges}>Lagre endringer</button>
     </section>
   );
 };

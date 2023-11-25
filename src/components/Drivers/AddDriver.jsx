@@ -33,7 +33,6 @@ const AddDriver = () => {
     }
   };
 
-  // AddDriver.jsx
   const saveImage = async () => {
     setLoading(true);
 
@@ -49,7 +48,7 @@ const AddDriver = () => {
     setLoading(false);
 
     if (createdDriver) {
-      setSubmitStatus("Driver added successfully!");
+      setSubmitStatus("Sjåfør lagt til!");
 
       setName("");
       setAge("");
@@ -57,13 +56,11 @@ const AddDriver = () => {
       setImage(null);
 
       setDriver((prevDriver) => [...prevDriver, createdDriver]);
-    } else {
-      setSubmitStatus("Error adding driver. Please try again later.");
     }
   };
 
   return (
-    <section className="mb-3">
+    <section className="mb-3   ">
       <h3>Legg til ny Sjåfør</h3>
       <div>
         <label>Navn:</label>
@@ -92,7 +89,6 @@ const AddDriver = () => {
         value="Lagre"
         disabled={loading}
       />
-      {loading && <p>Loading...</p>}
       {submitStatus && <p>{submitStatus}</p>}
     </section>
   );

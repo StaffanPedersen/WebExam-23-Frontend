@@ -25,6 +25,16 @@ const DriverService = (() => {
     }
   };
 
+  const getByName = async (name) => {
+    try {
+      const result = await axios.get(`${driverController}/byName/${name}`);
+      return result.data;
+    } catch (err) {
+      console.log(`Unable to get driver with name ${name}`);
+      return null;
+    }
+  };
+
   const putDriver = async (driverToUpdate) => {
     try {
       const result = await axios.put(
@@ -89,6 +99,7 @@ const DriverService = (() => {
     postDriver,
     putDriver,
     getById,
+    getByName,
     deleteDriver,
     getImageUrl,
   };

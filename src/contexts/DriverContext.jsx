@@ -25,6 +25,16 @@ export const DriverProvider = ({ children }) => {
     }
   };
 
+  const getByName = async (name) => {
+    try {
+      const result = await DriverService.getByName(name);
+      return result;
+    } catch (err) {
+      console.error("Error fetching driver by Name:", err);
+      return null;
+    }
+  };
+
   const editDriver = async (driverToUpdate) => {
     await DriverService.putDriver(driverToUpdate);
     getDriverFromService();
@@ -37,6 +47,7 @@ export const DriverProvider = ({ children }) => {
         setDriver,
         getDriverFromService,
         getById,
+        getByName,
         editDriver,
       }}
     >

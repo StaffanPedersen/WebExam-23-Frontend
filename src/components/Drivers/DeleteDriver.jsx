@@ -26,13 +26,13 @@ const DeleteDriver = () => {
   };
 
   return (
-    <section className="mb-3">
-      <h3>Delete a driver</h3>
+    <section className="mb-3 ">
+      <h3>Slett en sjåfør</h3>
       <div>
-        <label>Driver ID to delete</label>
+        <label>ID til en sjåfør</label>
         <input onChange={handleChange} name="id" type="text" />
       </div>
-      <input onClick={handleClick} type="button" value="Delete driver" />
+      <input onClick={handleClick} type="button" value="Slett sjåfør" />
       {deleteStatus && <p>{deleteStatus}</p>}
     </section>
   );

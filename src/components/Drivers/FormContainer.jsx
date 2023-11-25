@@ -1,7 +1,7 @@
 const FormContainer = ({ children }) => {
   return (
     <>
-      <section className="d-flex">{children}</section>
+      <section className="d-flex ">{children}</section>
     </>
   );
 };

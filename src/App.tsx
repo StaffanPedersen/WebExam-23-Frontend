@@ -7,10 +7,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <>
-      <div>
+      <div className="bg-secondary ">
         <BrowserRouter>
           <MainNav />
-          <main className="container">
+          <main className="container  ">
             <DriverProvider>
               <Routes>
                 <Route path="/driver" element={<DriverPage />}></Route>
