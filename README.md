@@ -2,17 +2,8 @@
 
 TODO:
 
-Fikse DriverService.js til å legge til riktig data i db, add / delete osv.
+Fikse grid ferdig, responsivt layout.
 
-add css vanilla.
-add css bootstrap.
-fix webpage.
-
-add image routing to db.
-
-fix api hjelper side med info om api.
-
-Rydd og endre/legge til kode!
 
 ---
 

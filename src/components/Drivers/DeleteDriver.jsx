@@ -18,7 +18,7 @@ const DeleteDriver = () => {
 
       await getDriverFromService();
     } else {
-      setDeleteStatus("Something went wrong!");
+      setDeleteStatus("Noe gikk galt!");
     }
     setTimeout(() => {
       setDeleteStatus("");
