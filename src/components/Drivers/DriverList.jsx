@@ -38,7 +38,7 @@ const DriverList = ({ page }) => {
 
   return (
     <section className="mb-3">
-      <h3 className="text-center">Sjåfører</h3>
+      <h3 className="text-center">Registrerte Sjåfører</h3>
       <input
         type="text"
         placeholder="Filter etter navn"
