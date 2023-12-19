@@ -1,8 +1,7 @@
 # React + TypeScript + Vite
 
-TODO:
 
-Fikse grid ferdig, responsivt layout.
+
 
 
 ---
